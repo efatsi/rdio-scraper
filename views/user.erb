@@ -1,0 +1,8 @@
+<p>
+	Last played song for <a href="<%= @user_url %>"><%= params[:username] %></a>:
+</p>
+
+<p>
+	<%= @song[:artist] %>: <%= @song[:title] %>
+</p>
+<a href="<%= "http://rdio.com#{@song[:url]}" %>"><img src="<%= @song[:icon] %>"></a>
