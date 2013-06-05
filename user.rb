@@ -23,7 +23,7 @@ class User
       {
         :title  => t[:album],
         :artist => t[:artist],
-        :url    => t[:albumUrl]
+        :url    => "http://rdio.com#{t[:albumUrl]}"
       }
     end.uniq
   end
