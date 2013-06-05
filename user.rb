@@ -1,3 +1,5 @@
+require 'rdio_api'
+
 class User
 
   def initialize(username)
@@ -17,7 +19,13 @@ class User
   def heavy_rotation
     key = user_data[:heavyRotationKey]
     hr  = client.get(:keys => key)
-    hr[key][:tracks].map{|a| "#{a[:artist]} - #{a[:album]}"}.uniq
+    hr[key][:tracks].map do |t|
+      {
+        :title  => t[:album],
+        :artist => t[:artist],
+        :url    => t[:albumUrl]
+      }
+    end.uniq
   end
 
   def url

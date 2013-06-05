@@ -11,9 +11,9 @@
 	Heavy Rotation:
 </h3>
 <ul>
-	<% @user.heavy_rotation.each do |artist| %>
+	<% @user.heavy_rotation.each do |album| %>
 		<li>
-			<%= artist %>
+			<a href="<%= album[:url] %>"><%= "#{album[:artist]}: #{album[:title]}" %></a>
 		</li>
 	<% end %>
 </ul>
